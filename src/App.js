@@ -5,12 +5,12 @@ import Main from "./Main";
 import Nav from "./Nav";
 
 function App() {
-  return (<>
-  <Header></Header>
-  <Nav></Nav>
-  <Main></Main>
-  <Footer></Footer>
-  </>
+  return (<div className="wrapper">
+  <Header />
+  <Nav />
+  <Main />
+  <Footer />
+  </div>
   );
 }
 
