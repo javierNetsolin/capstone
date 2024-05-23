@@ -1,14 +1,27 @@
+import { Link } from "react-router-dom"
 import Hamburguer from "./assets/HmburguerMenu.svg"
 export default function Nav(){
     return(
    <nav class="main-nav">
       <ul class="text-menu">
-            <li><a href="/home">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/menu">Menu</a></li>
-            <li><a href="/reservations">Reservations</a></li>
-            <li><a href="/order-online">Order Online</a></li>
-            <li><a href="/login">Login</a></li>
+            <li>
+            <Link to="/" className="nav-item">Home</Link>
+            </li>
+            <li>
+              <Link to="/" className="nav-item">About</Link>
+              </li>
+            <li>
+              <Link to="/" className="nav-item">Menu</Link>
+            </li>
+            <li>
+              <Link to="/reservations" className="nav-item">Reservations</Link>
+            </li>
+            <li>
+              <Link to="/" className="nav-item">Order Online</Link>
+              </li>
+            <li>
+              <Link to="/" className="nav-item">Login</Link>
+              </li>
         </ul>
       <img class="hamburger-nav" src={Hamburguer} alt="Hamburguer menu icon"/>
 

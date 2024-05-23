@@ -41,6 +41,10 @@
       width: 100%;
 }
 
+.main-nav .nav-item:hover{
+    color: var(--coral);
+}
+
 .hero-section{
     grid-column: 1 / span 4;
     display: grid;
@@ -241,6 +245,47 @@
     color: var(--blackie);
 }
 
+.booking-form{
+    display: grid;
+    /* max-width: 200px; */
+    gap: 20px;
+    grid-column: 1 / span 4;
+    margin: 0 16px;
+}
+.booking-form  h2{
+    font-size: 40px;
+}
+
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none; /* For Safari */
+  -moz-appearance: none; /* For Firefox */
+  background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='24' height='24' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='black'/></g></svg>") no-repeat right 10px center;
+  background-color: var(--gray);
+  /* padding-left: 30px; 
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px; */
+}
+.booking-form input[type="submit" i] {
+background-color: var(--yellow);
+border-radius: 16px;
+font-weight: 700;
+font-size: 18px;
+font-family: "Karla", sans-serif;
+}
+
+.main-content .image-container-booking {
+    grid-column: 1 / span 4;
+    max-height: 384px;
+    overflow: hidden;
+}
+.main-content .image-container-booking img{
+    width: 100%;
+}
+
+
 /* CSS rules for laptops */
 
 @media screen and (min-width: 769px) {
@@ -423,6 +468,19 @@
 }
 .footer-section .logo-container{
     align-self: center;
+}
+
+.main-content .image-container-booking{
+    grid-column: 7 / span 4;
+    grid-row: 1;
+    align-self: center;
+    border-radius: 16px;
+    max-height: none;
+}
+
+.main-content .booking-form{
+    grid-column: 3 / span 4;
+        grid-row: 1;
 }
 
 }

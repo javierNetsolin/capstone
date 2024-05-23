@@ -72,6 +72,24 @@ h2{
     font-size: 18px;
   }
 
+  label {
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+
+  }
+
+  input, select {
+        font-family: 'Karla';
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--green);
+    background-color: var(--gray);
+    border: none;
+    padding: 12px;
+    border-radius: 16px;
+  }
+
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

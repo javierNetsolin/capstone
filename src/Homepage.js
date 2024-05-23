@@ -4,7 +4,7 @@ import LemonDessert from "./assets/lemondessert.jpg"
 import Bruchetta from "./assets/bruchetta.jpg"
 import Moto from "./assets/moto.svg"
 import MarioAdrian from "./assets/marioandAdrian.jpg"
-export default function Main(){
+export default function Homepage(){
     return(<main className="main-content">
         <Hero />
         <Highlights/>
