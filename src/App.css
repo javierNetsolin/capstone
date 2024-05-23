@@ -8,7 +8,6 @@
 }
 .wrapper > * {
     grid-column: 1 / span 4;
-    /* padding: 0 16px 0 16px; */
 }
 .text-menu{
     display: none;
@@ -36,6 +35,10 @@
 .main-footer{
     padding-bottom: 8px;
     padding-left: 16px;
+}
+
+.main-head .logo-header{
+      width: 100%;
 }
 
 .hero-section{
@@ -71,21 +74,17 @@
     margin-top: 40px;
 }
 .hero .left h1 {
-    /* grid-column: 1 / span 4; */
-    /* font-family: 'Markazi Text'; */
     color: var(--yellow);
     white-space: nowrap;
 }
 .hero .left h3 {
     color: var(--gray);
-    /* margin: -24px 0 16px 0; */
 }
-.hero .left  p {
+.hero .left > p {
     color: var(--white);
     margin: 0;
 }
 .hero .right  .image-container{
-    /* grid-column: 3 / span 2; */
     width: 147px;
     height: 152px;
     overflow: hidden;
@@ -98,8 +97,6 @@
     clip-path: inset(0); /* Clip the image using a rectangle */
 }
 .reserve-button{
-    /* grid-column: 1 / span 3; */
-    /* grid-column: 1/1; */
     background-color: var(--yellow);
     display: flex;
     justify-content: center; /* Aligns items horizontally */
@@ -112,11 +109,9 @@
 .hero .reserve-button p{
     font-weight: 700;
     font-size: 16px;
-    color: var(--black);
 }
 
-highlights{
-    /* background-color: var(--green);; */
+.highlights{
     grid-column: 1 / span 4;
     display: grid;
     grid-template-columns: inherit;
@@ -129,15 +124,9 @@ highlights{
     justify-content: space-between;
 }
 .highlights  h2{
-    /* font-family: 'Karla'; */
-    grid-column: 1 / span 2;
-    font-size: 20px;
-    font-weight: 800;
-    margin: 0;
+    font-size: 40px;
 }
 .highlights  .menu-button{
-    /* font-family: 'Karla'; */
-    grid-column: 3 / span 2;
     align-self: center;
     margin: 0;
     background-color: var(--yellow);
@@ -147,30 +136,24 @@ highlights{
     width: 148px;
     height: 35px;
     border-radius: 16px;
-    /* margin-bottom: 24px; */
+    flex-shrink: 0;
 }
 .menu-button p{
-    /* font-family: 'Karla'; */
     font-size: 16px;
     font-weight: 700;
 }
-/* .highlights h2{
-    font-size: 20px;
-    font-weight: 800;
-
-} */
 .highlights .cards-h{
     grid-column: 1 / span 4;
+    display: flex;
+    flex-direction: column;
+    gap:inherit;
 }
 .specials-card{
      grid-column: 1 / span 4;
-      background-color: #EDEFEE;
+      background-color: var(--gray);
     border-radius: 16px;
-    /* display: flex;
-    flex-direction: column; */
 }
 .image-card-container{
-    /* grid-column: 3 / span 4; */
     width: 100%;
     height: auto;
     overflow: hidden;
@@ -179,48 +162,267 @@ highlights{
 }
 .image-card-container img {
     width: 100%; /* Make sure the image fills the container */
-    height: 238px; /* Maintain aspect ratio */
+    height: 216px; /* Maintain aspect ratio */
     clip-path: inset(0); /* Clip the image using a rectangle */
 }
 .content-container-card {
-    margin: 16px;
-    /* align-items: baseline; */
-    /* margin-bottom: 10px; */
+    padding: 8px 16px 24px 16px;
 }
 .tittle-container-card{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    line-height: 90%;
 }
 
-.tittle-container-card  h4{
-    /* font-family: 'Karla'; */
-    /* flex: 1 1 100px; */
-    font-size: 18px;
-    font-weight: 700;
-}
-.tittle-container-card  p{
-    /* font-family: 'Karla'; */
+.highlights .tittle-container-card > p{
     color: var(--coral);
-    /* align-self:end; */
     font-size: 18px;
     font-weight: 500;
-}
-.specials-card  h5{
-    /* font-family: 'Karla'; */
-    font-size: 16px;
-    font-weight: 700;
-    padding-bottom: 8px;
-}
+  }
+  .content-container-card  p {
+      color: var(--green);
+      font-size: 16px;
+      font-weight: 400;
+  }
 
-.content-container-card  p {
-    /* font-family: 'Karla'; */
-    color: var(--green);
-    font-size: 16px;
-    font-weight: 400;
-}
 .specials-card .icon {
     vertical-align: middle;
-    margin-left: 5px;
+    margin-left: 8px;
 }
 
+.about{
+    grid-column: 1 / span 4;
+    display: flex;
+    flex-direction: column;
+    gap:inherit;
+    padding: 0 16px 0 16px;
+}
+.about p{
+    font-weight: 400;
+}
+.about .left {
+    display: flex;
+    flex-direction: column;
+    gap: inherit;
+}
+.about .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
+.main-footer{
+    background-color: var(--gray);
+}
+
+.main-footer  .logo-container{
+    height: 162px;
+    margin: 16px 0 16px -28px;
+
+    /* padding: 16px 0; */
+}
+.main-footer .image-container img {
+    height: 100%;
+    width: auto;
+    border-radius: 16px;
+    display: block;
+}
+.main-footer figcaption {
+    font-family: "Karla", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--green);
+  }
+  .main-footer li {
+  font-family: "Karla", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--blackie);
+}
+
+/* CSS rules for laptops */
+
+@media screen and (min-width: 769px) {
+    /* Estilos específicos para pantallas con un ancho mínimo de 769 píxeles */
+    .wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  /* revisar margin top y maargin bottom */
+  /* padding: 20px 70px; */
+  margin: 0;
+  /* background-color: #EE9972; */
+}
+/* .wrapper > * {
+    grid-column: 3 / span 8;
+} */
+.main-head{
+    grid-row: 1;
+    grid-column: 3 / span 2;
+    padding: 0;
+    display: grid;
+    justify-content: flex-start;
+    align-items: center;
+}
+.main-nav{
+    grid-row: 1;
+    grid-column: 5 / span 6;
+    display: flex;
+    padding: 0;
+}
+
+.main-nav .hamburger-nav{
+    display: none;
+}
+.main-nav .text-menu{
+  font-family: "Karla", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: 0 8px
+}
+.logo-header {
+    max-width: 100%;
+}
+.main-content{
+    grid-row: 2;
+    grid-column: 1 / span 12;
+}
+.hero-section{
+    grid-column: 1 / span 12;
+    background-color:var(--green);
+    display: grid;
+    grid-template-columns: inherit;
+    gap:inherit;
+}
+.hero{
+    grid-column: 1 / span 12;
+    display: grid;
+    grid-template-columns: inherit;
+    gap:inherit;
+    padding: 40px 0 16px 0;
+}
+
+.hero .left{
+    grid-column: 3/ span 4;
+}
+.hero .right{
+    grid-column: 7/ span 4;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+.hero .right .image-container{
+    width: 306px;
+    height: 346px;
+    justify-content: flex-end;
+    /*
+    position: absolute;
+    top: 100px; */
+    display: flex;
+    /* justify-content: center;
+    align-items: center;
+    height: 100vh; */
+    /* position: relative; */
+    overflow: visible; 
+}
+.hero .right .image-container img {
+    border-radius: 16px;
+    width: 100%; /* Ensure image retains its natural width */
+  height: 396px; /* Make the image height match the container height */
+  /* position: relative;
+  top: 0;
+  left: 0; */
+  margin-top: 32px;
+}
+.highlights{
+    margin-top: 72px;
+    padding: 0;
+    grid-column: 1/ span 12;
+
+}
+
+.highlights-heading{
+    grid-column: 3/ span 8;
+    /* display: grid;
+    grid-template-columns: inherit;
+    gap:inherit; */
+    /* padding: 20px 0px; */
+}
+.highlights .cards-h{
+    grid-column: 3/ span 8;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: inherit;
+
+}
+.highlights .specials-card{
+    flex: 1;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: inherit;
+    /* justify-content: space-around; */
+}
+
+.highlights .specials-card .image-card-container{
+    width: 100%;
+    height: 185px;
+}
+.specials-card h5{
+    padding: 0;
+}
+
+.highlights .content-container-card{
+    flex: 1;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about{
+    grid-column: 1/ span 12;
+    padding: 0;
+     display: grid;
+    grid-template-columns: inherit;
+    gap:inherit;
+    padding: 16px 0;
+
+}
+.about .left{
+    grid-column: 3/ span 4;
+}
+.about .right{
+    grid-column: 7/ span 4;
+    margin: 0;
+}
+.main-footer{
+    grid-column: 1/ span 12;
+     display: grid;
+    grid-template-columns: inherit;
+    gap:inherit;
+    padding: 0;
+}
+.main-footer .footer-section{
+    grid-column: 3/ span 8;
+    display: flex;
+    gap: inherit;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 32px 0px;
+}
+
+.footer-section .image-container{
+    padding: 0;
+    align-self: center;
+}
+.footer-section .logo-container{
+    align-self: center;
+}
+
+}

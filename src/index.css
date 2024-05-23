@@ -40,12 +40,31 @@ h1{
     font-family: "Markazi Text", serif;
    line-height: 80%;
   }
+h2{
+    font-size: 64px;
+    font-weight: 400;
+    margin: 0;
+    font-family: "Markazi Text", serif;
+  }
   h3{
     font-size: 40px;
     font-weight: 400;
     margin: 0;
     font-family: "Markazi Text", serif;
     line-height: 80%;
+  }
+  h4{
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+    font-family: "Markazi Text", serif;
+  }
+  h5{
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    font-family: "Karla", sans-serif;
+
   }
   p {
     font-family: "Karla", sans-serif;
