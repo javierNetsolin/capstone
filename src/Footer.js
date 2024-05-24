@@ -1,9 +1,9 @@
 import VerticalLogo from "./assets/VerticalLogo";
 export default function Footer(){
-    return( <footer class="main-footer">
-        <section class="footer-section">
+    return( <footer className="main-footer">
+        <section className="footer-section">
 
-          {/* <div class="image-container"> */}
+          {/* <div className="image-container"> */}
            {/* <img src={VerticalLogo} alt="Little Lemon Logo"/> */}
           {/* </div> */}
             <VerticalLogo className="logo-container" ></VerticalLogo>
