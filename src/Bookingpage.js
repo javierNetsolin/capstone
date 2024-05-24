@@ -1,17 +1,32 @@
 import ResturantFood from "./assets/restauranfood.jpg"
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 
-export default function Bookingpage(){
-  const [availableTimes, setAvailableTimes] = useState([
-    '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
-  ]);
+// As part of the reserve-a-table web app functionality, the page will display the existing booked table times and available slots,
+//using a list component containing several instances of a BookingSlot component.
 
-  //This function will change the availableTimes based on the selected date.
-  const updateTimes = ()=>{
-    setAvailableTimes([
-    '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
-  ])
+
+const mockupTimes= [
+     '18:00', '19:00', '20:00', '22:00'
+  ];
+//This function will change the availableTimes based on the selected date.
+function updateTimes(state, action){
+  if(action.type === 'change_date'){
+    return mockupTimes
   }
+throw Error('Unknown action: ' + action.type);
+}
+export default function Bookingpage(){
+  // initial state for the availableTimes.
+  const initializeTimes= [
+    '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
+  ];
+
+  // const [availableTimes, setAvailableTimes] = useState([
+  //   '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
+  // ]);
+  const [availableTimes, setAvailableTimes] = useReducer(updateTimes,initializeTimes);
+
+
     return(<main className="main-content">
         {/* <h1>hola reservas</h1> */}
              <div className="image-container-booking">
@@ -32,6 +47,11 @@ export function Bookingform({availableTimes, setAvailableTimes}){
   const [time, setTime] = useState("1");
   const [occasion, setOccasion] = useState("Birthday");
 
+  const handleDateChange = (e)=>{
+    setAvailableTimes({type:'change_date', nextDate: e.target.value})
+    setDate(e.target.value)
+  }
+
   const handleSubmit = (e) =>{
     e.preventDefault()
     console.log('submit form', date, guests, time, occasion)
@@ -51,7 +71,7 @@ export function Bookingform({availableTimes, setAvailableTimes}){
         <h2>Reserve a Table</h2>
       <label htmlFor="res-date">Choose date</label>
       <input value={date}
-      onChange={(e) => setDate(e.target.value)}
+      onChange={handleDateChange}
       type="date" id="res-date" />
       <label htmlFor="res-time">Choose time</label>
       <select value={time}
