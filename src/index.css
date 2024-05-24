@@ -79,8 +79,8 @@ h2{
 
   }
 
-  input, select {
-        font-family: 'Karla';
+  input, select, button {
+    font-family:  "Karla", sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: var(--green);
@@ -88,6 +88,24 @@ h2{
     border: none;
     padding: 12px;
     border-radius: 16px;
+  }
+
+  button {
+  font-family:  "Karla", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  background-color: var(--yellow);
+  color: var(--black);
+  border: none;
+  padding: 8px;
+  border-radius: 16px;
+  }
+
+  button:disabled {
+    /* background-color: var(--gray); */
+    color: var(--blackie);
+    cursor: not-allowed;
+    opacity:0.6
   }
 
 /* code {

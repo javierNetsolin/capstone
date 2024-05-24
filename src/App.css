@@ -268,13 +268,20 @@
   padding: 10px;
   font-size: 16px; */
 }
-.booking-form input[type="submit" i] {
+/* .booking-form button[type="submit" i] {
+background-color: var(--yellow);
+border-radius: 16px;
+font-weight: 700;
+font-size: 20px;
+color: var(--black);
+} */
+/* .booking-form input[type="submit" i] {
 background-color: var(--yellow);
 border-radius: 16px;
 font-weight: 700;
 font-size: 18px;
 font-family: "Karla", sans-serif;
-}
+} */
 
 .main-content .image-container-booking {
     grid-column: 1 / span 4;
