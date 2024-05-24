@@ -2,20 +2,30 @@ import ResturantFood from "./assets/restauranfood.jpg"
 import React, { useState } from 'react';
 
 export default function Bookingpage(){
+  const [availableTimes, setAvailableTimes] = useState([
+    '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
+  ]);
+
+  //This function will change the availableTimes based on the selected date.
+  const updateTimes = ()=>{
+    setAvailableTimes([
+    '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
+  ])
+  }
     return(<main className="main-content">
         {/* <h1>hola reservas</h1> */}
              <div className="image-container-booking">
                  <img  src={ResturantFood} alt="Resturant food"/>
              </div>
 
-        <Bookingform />
+        <Bookingform availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} />
     </main>)
 }
 
-export function Bookingform(){
-  const availableTimes=[
-    '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
-  ]
+export function Bookingform({availableTimes, setAvailableTimes}){
+  // const availableTimes=[
+  //   '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
+  // ]
 
   const [date, setDate] = useState("");
   const [guests, setGuests] = useState(availableTimes[0]);
