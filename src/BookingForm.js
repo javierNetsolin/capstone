@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-export default function BookingForm({availableTimes =[], setAvailableTimes}){
+export default function BookingForm({availableTimes =[], setAvailableTimes, submitForm}){
   // const availableTimes=[
   //   '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
   // ]
-
+  // console.log(setAvailableTimes)
   const [date, setDate] = useState("");
   const [guests, setGuests] = useState(availableTimes.length > 0 ? availableTimes[0] : "");
   const [time, setTime] = useState("1");
@@ -12,7 +12,7 @@ export default function BookingForm({availableTimes =[], setAvailableTimes}){
 
   const handleDateChange = (e)=>{
     if(setAvailableTimes){
-      setAvailableTimes({type:'change_date', nextDate: e.target.value})
+      setAvailableTimes({type:'UPDATE_TIMES', payload: e.target.value})
     }
     setDate(e.target.value)
   }
@@ -24,6 +24,9 @@ export default function BookingForm({availableTimes =[], setAvailableTimes}){
       alert('Number of guests must be between 1 and 10.')
       return;
     }
+    submitForm({
+      date, guests, time, occasion
+    })
     //reset the form
     setDate('');
     setGuests('1');

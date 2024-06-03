@@ -255,6 +255,16 @@
 .booking-form  h2{
     font-size: 40px;
 }
+.confirmed-booking{
+    display: grid;
+    /* max-width: 200px; */
+    gap: 20px;
+    grid-column: 1 / span 4;
+    margin: 0 16px;
+}
+.confirmed-booking  h2{
+    font-size: 40px;
+}
 
 .custom-select {
   appearance: none;
@@ -488,6 +498,11 @@ font-family: "Karla", sans-serif;
 .main-content .booking-form{
     grid-column: 3 / span 4;
         grid-row: 1;
+}
+.main-content .confirmed-booking{
+    grid-column: 3 / span 4;
+        grid-row: 1;
+        display: block;
 }
 
 }

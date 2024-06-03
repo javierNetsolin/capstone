@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import BookingPage, {initializeTimes, updateTimes}  from './BookingPage';
+import BookingPage, {initializeTimes, updateTimes}  from './Bookingpage';
 
 
 
