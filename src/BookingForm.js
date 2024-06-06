@@ -40,7 +40,8 @@ export default function BookingForm({availableTimes =[], setAvailableTimes, subm
       <label htmlFor="res-date">Choose date</label>
       <input value={date}
       onChange={handleDateChange}
-      type="date" id="res-date" />
+      type="date"  id="res-date" data-testid="booking-time-option"/>
+      {/* type="date" id="res-date" data-testid="booking-time-option"/> */}
       <label htmlFor="res-time">Choose time</label>
       <select value={time}
       onChange={(e) => setTime(e.target.value)} className="custom-select" id="res-time">
