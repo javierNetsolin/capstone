@@ -50,7 +50,6 @@ export default function BookingForm({ availableTimes = [], setAvailableTimes, su
       {formik.touched.date && formik.errors.date ? (
         <div className='error'>{formik.errors.date}</div>
       ) : null}
-      
       <label htmlFor="res-time">choose time</label>
       <select
         id="res-time"
