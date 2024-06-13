@@ -1,11 +1,37 @@
-import { render, screen } from "@testing-library/react";
-import BookingForm from './BookingForm';
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import BookingForm from './BookingForm'; // Adjust the path as necessary
 
-test('Renders the Bookingform heading', () => {
-  const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
-  const setAvailableTimes = jest.fn(); // Mock function
+describe('BookingForm HTML5 validation attributes', () => {
+  test('Date input has required attribute', () => {
+    render(<BookingForm availableTimes={['17:00', '18:00']} submitForm={jest.fn()} />);
+    const dateInput = screen.getByLabelText(/choose date/i);
+    expect(dateInput).toHaveAttribute('type', 'date');
+    expect(dateInput).toBeRequired();
+  });
 
-  render(<BookingForm availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} />);
-  const headingElement = screen.getByText("Reserve a Table");
-  expect(headingElement).toBeInTheDocument();
+  test('Number of guests input has min and max attributes', () => {
+    render(<BookingForm availableTimes={['17:00', '18:00']} submitForm={jest.fn()} />);
+    const guestsInput = screen.getByLabelText(/number of guests/i);
+    expect(guestsInput).toHaveAttribute('type', 'number');
+    expect(guestsInput).toHaveAttribute('min', '1');
+    expect(guestsInput).toHaveAttribute('max', '10');
+  });
+
+  test('Time select has options', () => {
+    const availableTimes = ['17:00', '18:00'];
+    render(<BookingForm availableTimes={availableTimes} submitForm={jest.fn()} />);
+    const timeSelect = screen.getByLabelText(/choose time/i);
+    availableTimes.forEach((time) => {
+      expect(screen.getByText(time)).toBeInTheDocument();
+    });
+  });
+
+  test('Occasion select has options', () => {
+    render(<BookingForm availableTimes={['17:00', '18:00']} submitForm={jest.fn()} />);
+    const occasionSelect = screen.getByLabelText(/occasion/i);
+    expect(screen.getByText('Birthday')).toBeInTheDocument();
+    expect(screen.getByText('Anniversary')).toBeInTheDocument();
+  });
 });

@@ -38,19 +38,20 @@ export default function BookingForm({ availableTimes = [], setAvailableTimes, su
     <form className="booking-form" onSubmit={formik.handleSubmit}>
       <h2>Reserve a Table</h2>
       
-      <label htmlFor="res-date">Choose date</label>
+      <label htmlFor="res-date">choose date</label>
       <input
         type="date"
         id="res-date"
         data-testid="booking-time-option"
         {...formik.getFieldProps('date')}
         onChange={handleDateChange}
+        required
       />
       {formik.touched.date && formik.errors.date ? (
         <div className='error'>{formik.errors.date}</div>
       ) : null}
       
-      <label htmlFor="res-time">Choose time</label>
+      <label htmlFor="res-time">choose time</label>
       <select
         id="res-time"
         {...formik.getFieldProps('time')}
@@ -93,7 +94,7 @@ export default function BookingForm({ availableTimes = [], setAvailableTimes, su
         <div className='error'>{formik.errors.occasion}</div>
       ) : null}
       
-      <button type="submit" disabled={!formik.isValid || !formik.dirty}>
+      <button type="submit" aria-label="On Click" disabled={!formik.isValid || !formik.dirty}>
         Make Your reservation
       </button>
     </form>
