@@ -1,77 +1,101 @@
-import { useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import React from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
-export default function BookingForm({availableTimes =[], setAvailableTimes, submitForm}){
-  // const availableTimes=[
-  //   '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
-  // ]
-  // console.log(setAvailableTimes)
-  const [date, setDate] = useState("");
-  const [guests, setGuests] = useState(availableTimes.length > 0 ? availableTimes[0] : "");
-  const [time, setTime] = useState("1");
-  const [occasion, setOccasion] = useState("Birthday");
+export default function BookingForm({ availableTimes = [], setAvailableTimes, submitForm }) {
+  const formik = useFormik({
+    initialValues: {
+      date: '',
+      time: availableTimes.length > 0 ? availableTimes[0] : '',
+      guests: '1',
+      occasion: 'Birthday',
+    },
+    validationSchema: Yup.object({
+      date: Yup.string().required('Date is required'),
+      time: Yup.string().required('Time is required'),
+      guests: Yup.number()
+        .min(1, 'Must be at least 1 guest')
+        .max(10, 'Must be 10 guests or less')
+        .required('Number of guests is required'),
+      occasion: Yup.string().required('Occasion is required'),
+    }),
+    onSubmit: (values) => {
+      console.log('submit form', values);
+      submitForm(values);
+      // Reset the form
+      formik.resetForm();
+    },
+  });
 
-  const handleDateChange = (e)=>{
-    if(setAvailableTimes){
-      setAvailableTimes({type:'UPDATE_TIMES', payload: e.target.value})
+  const handleDateChange = (e) => {
+    if (setAvailableTimes) {
+      setAvailableTimes({ type: 'UPDATE_TIMES', payload: e.target.value });
     }
-    setDate(e.target.value)
-  }
+    formik.setFieldValue('date', e.target.value);
+  };
 
-  const handleSubmit = (e) =>{
-    e.preventDefault()
-    console.log('submit form', date, guests, time, occasion)
-    if(Number(guests)<1 || Number(guests) > 10){
-      alert('Number of guests must be between 1 and 10.')
-      return;
-    }
-    submitForm({
-      date, guests, time, occasion
-    })
-    //reset the form
-    setDate('');
-    setGuests('1');
-    setOccasion('Birthday');
-    setTime(availableTimes.length > 0 ? availableTimes[0] : "");
-  }
-
-     return (
-    <form className="booking-form" onSubmit={handleSubmit}>
-        <h2>Reserve a Table</h2>
+  return (
+    <form className="booking-form" onSubmit={formik.handleSubmit}>
+      <h2>Reserve a Table</h2>
+      
       <label htmlFor="res-date">Choose date</label>
-      <input value={date}
-      onChange={handleDateChange}
-      type="date"  id="res-date" data-testid="booking-time-option"/>
-      {/* type="date" id="res-date" data-testid="booking-time-option"/> */}
+      <input
+        type="date"
+        id="res-date"
+        data-testid="booking-time-option"
+        {...formik.getFieldProps('date')}
+        onChange={handleDateChange}
+      />
+      {formik.touched.date && formik.errors.date ? (
+        <div className='error'>{formik.errors.date}</div>
+      ) : null}
+      
       <label htmlFor="res-time">Choose time</label>
-      <select value={time}
-      onChange={(e) => setTime(e.target.value)} className="custom-select" id="res-time">
-        {availableTimes.map((item, index) =>(
-          <option key={index}>{item}</option>
+      <select
+        id="res-time"
+        {...formik.getFieldProps('time')}
+        className="custom-select"
+      >
+        <option value="" label="Select time" />
+        {availableTimes.map((item, index) => (
+          <option key={index} value={item}>
+            {item}
+          </option>
         ))}
-        {/* <option>18:00</option>
-        <option>19:00</option>
-        <option>20:00</option>
-        <option>21:00</option>
-        <option>22:00</option> */}
       </select>
+      {formik.touched.time && formik.errors.time ? (
+        <div className='error'>{formik.errors.time}</div>
+      ) : null}
+      
       <label htmlFor="guests">Number of guests</label>
-      <input value={guests}
-      onChange={(e) => setGuests(e.target.value) }
-      type="number" placeholder="1" min="1" max="10" id="guests" />
-
+      <input
+        type="number"
+        id="guests"
+        placeholder="1"
+        min="1"
+        max="10"
+        {...formik.getFieldProps('guests')}
+      />
+      {formik.touched.guests && formik.errors.guests ? (
+        <div className='error'>{formik.errors.guests}</div>
+      ) : null}
+      
       <label htmlFor="occasion">Occasion</label>
-      <select value={occasion}
-      onChange={(e) => setOccasion(e.target.value)} className="custom-select" id="occasion">
-        <option>Birthday</option>
-        <option>Anniversary</option>
+      <select
+        id="occasion"
+        {...formik.getFieldProps('occasion')}
+        className="custom-select"
+      >
+        <option value="Birthday">Birthday</option>
+        <option value="Anniversary">Anniversary</option>
       </select>
-
-      {/* <input disabled={!date && !guests && !time && !occasion} type="submit" value="Make Your reservation" /> */}
-      <button disabled={!date || !guests} type="submit">
+      {formik.touched.occasion && formik.errors.occasion ? (
+        <div className='error'>{formik.errors.occasion}</div>
+      ) : null}
+      
+      <button type="submit" disabled={!formik.isValid || !formik.dirty}>
         Make Your reservation
       </button>
-      {/* <button disabled={!dte && guessts...} type="submit" value="Make Your reservation" /> */}
     </form>
   );
 }

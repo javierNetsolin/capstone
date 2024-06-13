@@ -255,6 +255,9 @@
 .booking-form  h2{
     font-size: 40px;
 }
+.booking-form .error{
+    color: var(--coral);
+}
 .confirmed-booking{
     display: grid;
     /* max-width: 200px; */
